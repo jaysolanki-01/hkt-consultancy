@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 100">
+  <rect width="100%" height="100%" rx="18" fill="#090b0f"/>
+  <circle cx="56" cy="50" r="24" fill="#d4af64" opacity="0.24"/>
+  <text x="110" y="48" fill="#fff" font-family="Poppins,sans-serif" font-size="18" font-weight="700">Kapiraj</text>
+  <text x="110" y="68" fill="#d4af64" font-family="Poppins,sans-serif" font-size="10" letter-spacing="0.14em" text-transform="uppercase">AYURVEDA</text>
+</svg>

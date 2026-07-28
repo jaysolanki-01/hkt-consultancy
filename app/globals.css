@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  /* Surfaces */
+  --background: #ffffff;
+  --surface: #f4f6f9;
+  --surface-alt: #eef1f5;
+
+  /* Brand — taken from the HKT logo */
+  --brand: #051a30;
+  --brand-mid: #0e2f4d;
+  --brand-soft: #1e4d73;
+
+  /* Text scale — all AA compliant on white and on --surface */
+  --ink: #051a30;      /* headings / strong text   ~16.9:1 */
+  --body: #2c3a47;     /* paragraphs               ~11.6:1 */
+  --muted: #55636f;    /* labels, captions, meta    ~6.5:1 */
+  --on-dark: #ffffff;
+  --on-dark-muted: rgba(255, 255, 255, 0.82);
+
+  /* Hairlines & fills (non-text, contrast rules don't apply) */
+  --line: rgba(5, 26, 48, 0.12);
+  --line-strong: rgba(5, 26, 48, 0.22);
+  --fill: rgba(5, 26, 48, 0.05);
+
+  --foreground: var(--ink);
+  --nav-h: 74px;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-poppins);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keep text legible when a phone is rotated to landscape */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--body);
+  font-family: var(--font-poppins), "Poppins", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  :root {
+    --nav-h: 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
