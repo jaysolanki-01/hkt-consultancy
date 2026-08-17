@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
 import { FAQS } from "./faq-data";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -15,6 +15,14 @@ const SITE_NAME = "HKT Consultancy";
 const TAGLINE = "Business Growth Architects";
 const DESCRIPTION =
   "HKT Consultancy helps manufacturing enterprises break revenue plateaus. Led by Dhiraj Thakur — 30+ years in sales leadership, team building and operational excellence across 200+ Indian manufacturing businesses.";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: "#0b1d35",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -166,7 +174,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-IN" className={`${poppins.variable} h-full antialiased`}>
+    <html lang="en-IN" className={`${spaceGrotesk.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
         {children}
         <script
