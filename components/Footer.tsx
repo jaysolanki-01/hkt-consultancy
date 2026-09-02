@@ -35,11 +35,11 @@ export default function Footer() {
           <div style={{ gridColumn: "span 1" }}>
             <Link href="/" style={{ display: "flex", alignItems: "flex-start", textDecoration: "none", marginBottom: "1.25rem" }}>
               <Image
-                src="/logo.png"
+                src="/hkt-logo.svg"
                 alt="HKT Consultancy — Business Growth Architects"
-                width={180}
-                height={72}
-                style={{ objectFit: "contain", objectPosition: "left center", height: 60, width: "auto" }}
+                width={260}
+                height={58}
+                style={{ objectFit: "contain", objectPosition: "left center", height: 50, width: "auto" }}
               />
             </Link>
             <p style={{ fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 260 }}>

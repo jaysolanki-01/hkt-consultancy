@@ -99,11 +99,11 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" aria-label="HKT Consultancy — Home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
           <Image
-            src="/logo.png"
+            src="/hkt-logo.svg"
             alt="HKT Consultancy — Business Growth Architects"
-            width={160}
-            height={64}
-            style={{ objectFit: "contain", objectPosition: "left center", height: 52, width: "auto" }}
+            width={240}
+            height={54}
+            style={{ objectFit: "contain", objectPosition: "left center", height: 44, width: "auto" }}
             priority
           />
         </Link>
