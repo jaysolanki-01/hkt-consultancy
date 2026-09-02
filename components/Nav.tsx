@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import HktLogo from "@/components/HktLogo";
 import { SITE } from "@/lib/data";
 
 const NAV_LINKS = [
@@ -98,14 +98,7 @@ export default function Nav() {
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
         <Link href="/" aria-label="HKT Consultancy — Home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
-          <Image
-            src="/hkt-logo.svg"
-            alt="HKT Consultancy — Business Growth Architects"
-            width={240}
-            height={54}
-            style={{ objectFit: "contain", objectPosition: "left center", height: 44, width: "auto" }}
-            priority
-          />
+          <HktLogo height={42} />
         </Link>
 
         {/* Desktop nav */}

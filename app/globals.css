@@ -272,6 +272,59 @@ img { max-width: 100%; }
   :root { --nav-h: 64px; }
 }
 
+@media (max-width: 480px) {
+  /* Reduce display headline size on small phones */
+  .display { font-size: 2.1rem !important; letter-spacing: -0.03em; }
+  .h1 { font-size: 1.85rem !important; }
+  .h2 { font-size: 1.55rem !important; }
+
+  /* Tighten hero padding on small screens */
+  .hero-inner { padding-top: 5rem !important; padding-bottom: 3rem !important; }
+}
+
+@media (max-width: 768px) {
+  /* Two-column section grids → single column */
+  .why-hkt-grid,
+  .about-grid,
+  .faq-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* About photo: give room for the absolute "30+ years" badge */
+  .about-grid > .rvl {
+    padding-bottom: 2.5rem;
+  }
+
+  /* Process steps: horizontal scroll → vertical stack */
+  .process-steps {
+    flex-direction: column !important;
+    overflow-x: visible !important;
+    gap: 0 !important;
+  }
+  .process-steps > div {
+    flex: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding: 1.5rem 0 !important;
+  }
+  .process-steps > div:last-child { border-bottom: none; }
+
+  /* Solutions list card: hide "Explore →" label, tighten columns */
+  .sol-card {
+    grid-template-columns: 60px 1fr !important;
+    gap: 1rem !important;
+  }
+  .sol-card > span:last-child { display: none; }
+
+  /* Buttons: allow full-width stacking */
+  .btn-stack-mobile {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+  .btn-stack-mobile .btn { justify-content: center; }
+}
+
 /* ── ACCESSIBILITY ─────────────────────────────────────────────────── */
 :focus-visible {
   outline: 2px solid var(--gold);

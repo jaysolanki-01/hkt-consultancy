@@ -76,24 +76,24 @@ function HeroSection() {
         pointerEvents: "none",
       }} />
 
-      <div className="container" style={{ paddingTop: "6rem", paddingBottom: "6rem", position: "relative", zIndex: 1 }}>
+      <div className="container hero-inner" style={{ paddingTop: "6rem", paddingBottom: "6rem", position: "relative", zIndex: 1 }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: "3rem 4rem", alignItems: "center" }}>
           {/* Left: copy */}
           <div>
-            <p className="eyebrow rv" style={{ color: "var(--gold)", marginBottom: "1.5rem" }}>
+            <p className="eyebrow" style={{ color: "var(--gold)", marginBottom: "1.5rem" }}>
               <span style={{ display: "inline-block", width: 28, height: 1, background: "var(--gold)", verticalAlign: "middle", marginRight: 10 }} />
               Manufacturing Business Growth Consultancy
             </p>
 
-            <h1 className="display rv d1" style={{ color: "#fff", maxWidth: 680 }}>
+            <h1 className="display" style={{ color: "#fff", maxWidth: 680 }}>
               Growth stalls in manufacturing businesses for specific, fixable reasons.
             </h1>
 
-            <p className="lead rv d2" style={{ color: "rgba(255,255,255,0.65)", marginTop: "1.5rem", maxWidth: 520 }}>
+            <p className="lead" style={{ color: "rgba(255,255,255,0.65)", marginTop: "1.5rem", maxWidth: 520 }}>
               HKT Consultancy works with Promoters, Founders, and senior manufacturing leaders to diagnose what is holding the business back — and build the strategy, capability, and execution discipline to break through it.
             </p>
 
-            <div className="rv d3" style={{ marginTop: "2rem", display: "flex", flexWrap: "wrap", gap: 12 }}>
+            <div style={{ marginTop: "2rem", display: "flex", flexWrap: "wrap", gap: 12 }}>
               <Link href="/contact" className="btn btn-gold">
                 Book a Discovery Call
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -106,7 +106,7 @@ function HeroSection() {
             </div>
 
             {/* Proof strip */}
-            <div className="rv d4" style={{ marginTop: "3rem", display: "flex", flexWrap: "wrap", gap: "2rem 2.5rem" }}>
+            <div style={{ marginTop: "3rem", display: "flex", flexWrap: "wrap", gap: "2rem 2.5rem" }}>
               {HERO_STATS.map(stat => (
                 <div key={stat.label}>
                   <p style={{ fontFamily: "var(--font-serif)", fontSize: "1.75rem", fontWeight: 700, color: "var(--gold)", margin: 0, lineHeight: 1 }}>
@@ -338,7 +338,7 @@ function ProcessSection() {
           </h2>
         </div>
 
-        <div style={{ display: "flex", gap: "0", overflowX: "auto", paddingBottom: "1rem" }}>
+        <div className="process-steps" style={{ display: "flex", gap: "0", overflowX: "auto", paddingBottom: "1rem" }}>
           {PROCESS_STEPS.map((step, i) => (
             <div
               key={step.step}
@@ -378,7 +378,7 @@ function WhyHKTSection() {
   return (
     <section className="section" style={{ background: "var(--background)" }}>
       <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
+        <div className="why-hkt-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
           <div>
             <p className="eyebrow rv">Why HKT</p>
             <h2 className="h2 rv d1" style={{ color: "var(--navy)", marginTop: "0.75rem" }}>
@@ -460,7 +460,7 @@ function AboutSection() {
   return (
     <section className="section" style={{ background: "var(--surface)" }}>
       <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "360px 1fr", gap: "4rem", alignItems: "center" }}>
+        <div className="about-grid" style={{ display: "grid", gridTemplateColumns: "360px 1fr", gap: "4rem", alignItems: "center" }}>
           {/* Photo */}
           <div className="rvl" style={{ position: "relative" }}>
             <div style={{
@@ -527,7 +527,7 @@ function FAQSection() {
   return (
     <section className="section" style={{ background: "var(--background)" }}>
       <div className="container">
-        <div style={{ display: "grid", gridTemplateColumns: "340px 1fr", gap: "4rem", alignItems: "start" }}>
+        <div className="faq-grid" style={{ display: "grid", gridTemplateColumns: "340px 1fr", gap: "4rem", alignItems: "start" }}>
           <div>
             <p className="eyebrow rv">Common Questions</p>
             <h2 className="h2 rv d1" style={{ color: "var(--navy)", marginTop: "0.75rem" }}>

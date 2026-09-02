@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 72" role="img" aria-labelledby="hkt-title">
+  <title id="hkt-title">HKT Consultancy</title>
+  <circle cx="36" cy="36" r="30" fill="none" stroke="#ffffff" stroke-width="2.5"/>
+  <g fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 24 V48"/>
+    <path d="M29 24 V48"/>
+    <path d="M18 36 H29"/>
+    <path d="M29 36 L40 24"/>
+    <path d="M29 36 L40 48"/>
+    <path d="M38 24 H54"/>
+    <path d="M46 24 V48"/>
+  </g>
+  <text x="78" y="30" font-family="Georgia,serif" font-size="18" font-weight="700" fill="#ffffff" letter-spacing="2.5">HKT CONSULTANCY</text>
+  <text x="79" y="48" font-family="Arial,sans-serif" font-size="8.5" font-weight="400" fill="#c9a84c" letter-spacing="2.2">BUSINESS GROWTH ARCHITECTS</text>
+</svg>

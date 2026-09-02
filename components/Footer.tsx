@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
+import HktLogo from "@/components/HktLogo";
 import { SITE, SOLUTIONS, INDUSTRIES } from "@/lib/data";
 
 const FOOTER_SOLUTIONS = SOLUTIONS.map(s => ({ label: s.title, href: `/solutions/${s.slug}` }));
@@ -34,13 +34,7 @@ export default function Footer() {
           {/* Brand column */}
           <div style={{ gridColumn: "span 1" }}>
             <Link href="/" style={{ display: "flex", alignItems: "flex-start", textDecoration: "none", marginBottom: "1.25rem" }}>
-              <Image
-                src="/hkt-logo.svg"
-                alt="HKT Consultancy — Business Growth Architects"
-                width={260}
-                height={58}
-                style={{ objectFit: "contain", objectPosition: "left center", height: 50, width: "auto" }}
-              />
+              <HktLogo height={48} />
             </Link>
             <p style={{ fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 260 }}>
               Manufacturing business growth consultancy. 30+ years of frontline experience across 200+ enterprises and 15+ industrial sectors.
