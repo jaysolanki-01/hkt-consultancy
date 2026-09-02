@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk } from "next/font/google";
-import { FAQS } from "./faq-data";
+import { Space_Grotesk, Fraunces } from "next/font/google";
+import { FAQS } from "@/lib/data";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -10,24 +12,32 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const SITE_URL = "https://www.hktconsultancy.in";
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const SITE_URL  = "https://www.hktconsultancy.in";
 const SITE_NAME = "HKT Consultancy";
-const TAGLINE = "Business Growth Architects";
+const TAGLINE   = "Manufacturing Business Growth Consultancy";
 const DESCRIPTION =
-  "HKT Consultancy helps manufacturing enterprises break revenue plateaus. Led by Dhiraj Thakur — 30+ years in sales leadership, team building and operational excellence across 200+ Indian manufacturing businesses.";
+  "HKT Consultancy helps manufacturing enterprises break revenue plateaus and build sustained growth. Led by Dhiraj Thakur — 30+ years in sales leadership, team building and operational excellence across 200+ Indian manufacturing businesses.";
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
   userScalable: true,
+  viewportFit: "cover",
   themeColor: "#0b1d35",
+  colorScheme: "light",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Manufacturing Business Growth Consultant in Ahmedabad`,
+    default: `${SITE_NAME} — Manufacturing Business Growth Consultant | Ahmedabad`,
     template: `%s | ${SITE_NAME}`,
   },
   description: DESCRIPTION,
@@ -48,9 +58,7 @@ export const metadata: Metadata = {
     "HKT Consultancy",
   ],
   category: "Business Consulting",
-  alternates: {
-    canonical: "/",
-  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -58,14 +66,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: `${SITE_NAME} — ${TAGLINE}`,
     description: DESCRIPTION,
-    images: [
-      {
-        url: "/logo.png",
-        width: 500,
-        height: 500,
-        alt: `${SITE_NAME} logo — ${TAGLINE}`,
-      },
-    ],
+    images: [{ url: "/logo.png", width: 500, height: 500, alt: `${SITE_NAME} logo` }],
   },
   twitter: {
     card: "summary_large_image",
@@ -84,23 +85,9 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  formatDetection: {
-    telephone: true,
-    address: true,
-    email: true,
-  },
+  formatDetection: { telephone: true, address: true, email: true },
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  viewportFit: "cover",
-  themeColor: "#051a30",
-  colorScheme: "light",
-};
-
-/* Structured data — helps Google render a rich result for the brand,
-   the consultant, and the FAQ block on the page. */
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -159,7 +146,7 @@ const structuredData = {
     {
       "@type": "FAQPage",
       "@id": `${SITE_URL}/#faq`,
-      mainEntity: FAQS.map((f) => ({
+      mainEntity: FAQS.map(f => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -168,15 +155,15 @@ const structuredData = {
   ],
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-IN" className={`${spaceGrotesk.variable} h-full antialiased`}>
+    <html lang="en-IN" className={`${spaceGrotesk.variable} ${fraunces.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        {children}
+        <Nav />
+        <main style={{ flex: 1 }}>
+          {children}
+        </main>
+        <Footer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

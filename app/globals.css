@@ -1,43 +1,71 @@
 @import "tailwindcss";
 
+/* ── BRAND TOKENS ──────────────────────────────────────────────────── */
 :root {
+  /* Navy scale */
+  --navy:       #0b1d35;
+  --navy-mid:   #163660;
+  --navy-soft:  #1e4a8a;
+
+  /* Gold scale */
+  --gold:       #c9a84c;
+  --gold-l:     #e8c96a;
+  --gold-soft:  #f5edd5;
+
   /* Surfaces */
   --background: #ffffff;
-  --surface: #f7f9fc;
-  --surface-alt: #eef1f5;
+  --surface:    #f0f2f6;   /* section backgrounds */
+  --surface-2:  #e8edf4;
 
-  /* Brand — Navy + Gold premium palette */
-  --brand: #0a1628;
-  --brand-mid: #0f2040;
-  --brand-soft: #1e3a6e;
-  --gold: #b8953f;
-  --gold-l: #d4af64;
+  /* Text */
+  --ink:        #0b1d35;
+  --body:       #3d4f66;
+  --muted:      #64748b;
+  --on-dark:    #ffffff;
+  --on-dark-dim: rgba(255,255,255,0.55);
 
-  /* Text scale — all AA compliant on white and on --surface */
-  --ink: #0a1628;      /* headings / strong text */
-  --body: #334155;     /* paragraphs */
-  --muted: #64748b;    /* labels, captions, meta */
-  --on-dark: #ffffff;
-  --on-dark-muted: rgba(255, 255, 255, 0.82);
+  /* Lines */
+  --line:       rgba(11,29,53,0.09);
+  --line-mid:   rgba(11,29,53,0.16);
 
-  /* Hairlines & fills (non-text, contrast rules don't apply) */
-  --line: rgba(10, 22, 40, 0.1);
-  --line-strong: rgba(10, 22, 40, 0.2);
-  --fill: rgba(10, 22, 40, 0.04);
+  /* Layout */
+  --max-w:      1300px;
+  --pad:        clamp(1rem, 3.5vw, 2.5rem);
+  --sec-y:      clamp(4.5rem, 8vw, 7rem);
+  --nav-h:      72px;
 
+  /* Radius */
+  --r-sm: 6px;
+  --r:    10px;
+  --r-lg: 16px;
+
+  /* Font stacks */
+  --font-sans:  var(--font-space-grotesk), 'Space Grotesk', system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), 'Fraunces', Georgia, serif;
+
+  /* Legacy aliases (keeps existing code working) */
+  --brand:      var(--navy);
+  --brand-mid:  var(--navy-mid);
+  --brand-soft: var(--navy-soft);
   --foreground: var(--ink);
-  --nav-h: 74px;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-space-grotesk-fallback: 'Space Grotesk';
 }
 
+/* ── TAILWIND v4 THEME BRIDGE ─────────────────────────────────────── */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-space-grotesk);
+  --color-navy:       var(--navy);
+  --color-gold:       var(--gold);
+  --color-surface:    var(--surface);
+  --font-sans:        var(--font-space-grotesk);
 }
 
+/* ── BASE ──────────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  /* Keep text legible when a phone is rotated to landscape */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
@@ -45,26 +73,222 @@ html {
 body {
   background: var(--background);
   color: var(--body);
-  font-family: var(--font-space-grotesk), "Space Grotesk", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-@media (max-width: 600px) {
-  :root {
-    --nav-h: 64px;
-  }
+::selection { background: var(--navy); color: #fff; }
+
+img { max-width: 100%; }
+
+/* ── LAYOUT ────────────────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad);
 }
+
+.section { padding-block: var(--sec-y); }
+
+/* ── TYPOGRAPHY ────────────────────────────────────────────────────── */
+.display {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-style: italic;
+}
+
+.h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.lead {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.8;
+  color: var(--body);
+  max-width: 600px;
+}
+
+/* ── BUTTONS ───────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  min-height: 48px;
+}
+
+.btn-primary {
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(11,29,53,0.22);
+}
+.btn-primary:hover {
+  background: var(--navy-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(11,29,53,0.3);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy);
+  box-shadow: 0 4px 16px rgba(201,168,76,0.28);
+}
+.btn-gold:hover {
+  background: var(--gold-l);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 28px rgba(201,168,76,0.38);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  border: 1.5px solid rgba(255,255,255,0.2);
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.55);
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--navy);
+  border: 1.5px solid var(--line-mid);
+}
+.btn-outline:hover {
+  border-color: var(--navy);
+  background: rgba(11,29,53,0.04);
+}
+
+/* ── CARDS ─────────────────────────────────────────────────────────── */
+.card {
+  background: var(--background);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  transition: box-shadow 0.3s ease, transform 0.3s cubic-bezier(0.16,1,0.3,1);
+}
+.card:hover {
+  box-shadow: 0 12px 40px rgba(11,29,53,0.1);
+  transform: translateY(-3px);
+}
+
+.card-dark {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r-lg);
+  transition: background 0.3s, transform 0.3s, border-color 0.3s;
+}
+.card-dark:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-4px);
+  border-color: rgba(201,168,76,0.25);
+}
+
+/* ── REVEAL ANIMATIONS ─────────────────────────────────────────────── */
+.rv, .rvl, .rvr {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1),
+              transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.rv  { transform: translateY(24px); }
+.rvl { transform: translateX(-24px); }
+.rvr { transform: translateX(24px); }
+.rv.on, .rvl.on, .rvr.on {
+  opacity: 1;
+  transform: none;
+}
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.16s; }
+.d3 { transition-delay: 0.24s; }
+.d4 { transition-delay: 0.32s; }
+.d5 { transition-delay: 0.40s; }
+.d6 { transition-delay: 0.48s; }
+
+/* ── DECORATIVE ────────────────────────────────────────────────────── */
+.gold-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), var(--gold-l), var(--gold), transparent);
+}
+
+.grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M80 0H0v80' fill='none' stroke='rgba(255,255,255,0.025)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  :root { --nav-h: 64px; }
+}
+
+/* ── ACCESSIBILITY ─────────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button, a { min-height: 44px; }
+.btn { min-height: 48px; }
+input, textarea, select { min-height: 48px; font-size: 16px; }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  .rv, .rvl, .rvr { opacity: 1; transform: none; }
 }
