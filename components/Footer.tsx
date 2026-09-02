@@ -33,12 +33,14 @@ export default function Footer() {
 
           {/* Brand column */}
           <div style={{ gridColumn: "span 1" }}>
-            <Link href="/" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none", marginBottom: "1.25rem" }}>
-              <Image src="/logo.png" alt="HKT Consultancy" width={40} height={40} style={{ objectFit: "contain" }} />
-              <span style={{ fontFamily: "var(--font-serif)", fontSize: "1.05rem", fontWeight: 700, color: "#fff", lineHeight: 1.1 }}>
-                HKT<br />
-                <span style={{ fontSize: "0.55rem", fontFamily: "var(--font-sans)", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)" }}>Consultancy</span>
-              </span>
+            <Link href="/" style={{ display: "flex", alignItems: "flex-start", textDecoration: "none", marginBottom: "1.25rem" }}>
+              <Image
+                src="/logo.png"
+                alt="HKT Consultancy — Business Growth Architects"
+                width={180}
+                height={72}
+                style={{ objectFit: "contain", objectPosition: "left center", height: 60, width: "auto" }}
+              />
             </Link>
             <p style={{ fontSize: "0.85rem", lineHeight: 1.7, maxWidth: 260 }}>
               Manufacturing business growth consultancy. 30+ years of frontline experience across 200+ enterprises and 15+ industrial sectors.
@@ -128,17 +130,29 @@ export default function Footer() {
         {/* Bottom bar */}
         <div style={{ paddingTop: "1.5rem", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.75rem" }}>
           <p style={{ fontSize: "0.78rem", margin: 0 }}>
-            © {year} HKT Consultancy. All rights reserved. Founded {SITE.foundedYear}.
+            © {year} HKT Consultancy. All rights reserved.
           </p>
-          <div style={{ display: "flex", gap: "1.25rem" }}>
+          <div style={{ display: "flex", gap: "1.25rem", alignItems: "center", flexWrap: "wrap" }}>
             {[
-              { label: "Privacy Policy",  href: "/privacy" },
-              { label: "Terms of Use",    href: "/terms" },
+              { label: "Privacy Policy", href: "/privacy" },
+              { label: "Terms of Use",   href: "/terms" },
             ].map(item => (
               <Link key={item.href} href={item.href} style={{ color: "rgba(255,255,255,0.4)", fontSize: "0.75rem", textDecoration: "none" }}>
                 {item.label}
               </Link>
             ))}
+            <span style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.75rem" }}>|</span>
+            <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.35)" }}>
+              Built by{" "}
+              <a
+                href="https://sarvopaya.com/"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                style={{ color: "rgba(255,255,255,0.5)", textDecoration: "none" }}
+              >
+                Sarvopaya Digital
+              </a>
+            </span>
           </div>
         </div>
       </div>

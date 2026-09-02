@@ -97,19 +97,15 @@ export default function Nav() {
 
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         {/* Logo */}
-        <Link href="/" aria-label="HKT Consultancy — Home" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
-          <Image src="/logo.png" alt="HKT Consultancy" width={44} height={44} style={{ objectFit: "contain" }} priority />
-          <span style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: "1.1rem",
-            fontWeight: 700,
-            color: "#fff",
-            letterSpacing: "-0.01em",
-            lineHeight: 1.1,
-          }}>
-            HKT<br />
-            <span style={{ fontSize: "0.6rem", fontFamily: "var(--font-sans)", fontWeight: 500, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", opacity: 0.9 }}>Consultancy</span>
-          </span>
+        <Link href="/" aria-label="HKT Consultancy — Home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+          <Image
+            src="/logo.png"
+            alt="HKT Consultancy — Business Growth Architects"
+            width={160}
+            height={64}
+            style={{ objectFit: "contain", objectPosition: "left center", height: 52, width: "auto" }}
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
